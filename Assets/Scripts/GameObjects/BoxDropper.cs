@@ -12,13 +12,12 @@ public class BoxDropper : MonoBehaviour {
 	}
 	
 	// If the Crosshair enters
-	public void OnCrosshairEnter (GameObject sender) {
+	void OnCrosshairEnter (GameObject sender) {
 		print ("Crosshair Entered!");
-		rigidBody.useGravity = true;
 	}
 
 	// When crosshair exits
-	public void OnCrosshairExit (GameObject sender) {
+	void OnCrosshairExit (GameObject sender) {
 		print ("Crosshair Exited!");
 	}
 }
