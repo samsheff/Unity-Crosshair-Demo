@@ -7,6 +7,7 @@ public class Crosshair : MonoBehaviour {
 	// Event Names to call on objects
 	const string OnCrosshairExitMessage = "OnCrosshairExit";
 	const string OnCrosshairEnterMessage = "OnCrosshairEnter";
+	const string OnCrosshairClickMessage = "OnCrosshairClick";
 
 	// Enum for Modes
 	public enum Mode {
@@ -84,9 +85,14 @@ public class Crosshair : MonoBehaviour {
 			if (hitObject != newHitObject)
 			{
 				// New Object, Send a message to the object to let it know.
-				SendMessageTo(hitObject, OnCrosshairExitMessage);
+				SendMessageTo (hitObject, OnCrosshairExitMessage);
 				hitObject = newHitObject;
-				SendMessageTo(hitObject, OnCrosshairEnterMessage);
+				SendMessageTo (hitObject, OnCrosshairEnterMessage);
+			}
+
+			// The user clicked on the object, send a message letting the object know that too
+			if (Input.GetMouseButtonDown (0)) {
+				SendMessageTo (newHitObject, OnCrosshairClickMessage);
 			}
 		}
 		else

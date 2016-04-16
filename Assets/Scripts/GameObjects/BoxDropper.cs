@@ -20,4 +20,12 @@ public class BoxDropper : MonoBehaviour {
 	void OnCrosshairExit (GameObject sender) {
 		print ("Crosshair Exited!");
 	}
+
+	// When the crosshair is over the object and clicked
+	void OnCrosshairClick (GameObject sender) {
+		print ("Crosshair Clicked!");
+
+		// Enable Gravity if we've clicked the object
+		rigidBody.useGravity = true;
+	}
 }
